@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio de Casamento</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome para ícones delicados -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Configuração de Cores Personalizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mint: {
+                            light: '#f0fdf4', // Fundo bem suave
+                            DEFAULT: '#ccfbf1', // Menta
+                            dark: '#99f6e4'
+                        },
+                        emerald: {
+                            DEFAULT: '#065f46', // Esmeralda profundo para textos
+                            dark: '#022c22'
+                        },
+                        gold: {
+                            light: '#fef08a',
+                            DEFAULT: '#d4af37', // Dourado elegante
+                            dark: '#854d0e'
+                        }
+                    },
+                    fontFamily: {
+                        cursive: ['"Great Vibes"', 'cursive'], // Para os nomes dos noivos
+                        serif: ['"Playfair Display"', 'serif'], // Para os títulos dos pratos
+                        sans: ['"Lato"', 'sans-serif'], // Para as descrições
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-out forwards',
+                        'slide-up': 'slideUp 1s ease-out forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f0fdf4;
+            background-image: radial-gradient(#d4af37 0.5px, transparent 0.5px), radial-gradient(#d4af37 0.5px, #f0fdf4 0.5px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            background-blend-mode: multiply;
+            opacity: 0.95;
+        }
+
+        .gold-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 2rem auto;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        .menu-border {
+            position: relative;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(6, 95, 70, 0.1), 0 10px 10px -5px rgba(6, 95, 70, 0.04);
+            padding: 3px; 
+            background: linear-gradient(135deg, #d4af37 0%, #fef08a 50%, #d4af37 100%);
+        }
+
+        .menu-inner {
+            background-color: #ffffff;
+            border-radius: 10px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+    </style>
+</head>
+<body class="min-h-screen text-emerald font-sans antialiased py-10 px-4 flex justify-center items-center">
+
+    <!-- Card Principal do Cardápio -->
+    <div class="menu-border w-full max-w-2xl mx-auto animate-slide-up relative z-10">
+        <div class="menu-inner p-8 md:p-12 relative overflow-hidden text-center">
+            
+            <!-- Símbolos: Alianças de Casamento (Cantos) -->
+            <svg class="absolute top-6 left-6 w-16 h-16 text-gold opacity-40" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="40" cy="40" r="22" />
+                <circle cx="60" cy="60" r="22" />
+                <!-- Pequeno brilho/diamante -->
+                <path d="M 60 25 L 62 31 L 68 33 L 62 35 L 60 41 L 58 35 L 52 33 L 58 31 Z" fill="currentColor" stroke="none"/>
+            </svg>
+            
+            <svg class="absolute bottom-6 right-6 w-16 h-16 text-gold opacity-40" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="40" cy="40" r="22" />
+                <circle cx="60" cy="60" r="22" />
+                <!-- Pequeno brilho/diamante -->
+                <path d="M 60 25 L 62 31 L 68 33 L 62 35 L 60 41 L 58 35 L 52 33 L 58 31 Z" fill="currentColor" stroke="none"/>
+            </svg>
+
+            <!-- Cabeçalho do Cardápio -->
+            <div class="relative z-10 mb-10 animate-fade-in">
+                <p class="font-serif italic text-gold text-lg tracking-widest uppercase mb-4">O grande dia de</p>
+                <h1 class="font-cursive text-5xl md:text-7xl text-emerald mb-2 drop-shadow-sm">Aline & Hebert</h1>
+                <div class="gold-divider"></div>
+            </div>
+
+            <!-- SEÇÃO: ENTRADA -->
+            <div class="relative z-10 mb-8 animate-slide-up delay-100">
+                <h2 class="font-serif text-2xl text-emerald mb-4 flex items-center justify-center gap-3">
+                    <span class="w-8 h-px bg-gold"></span>
+                    Entrada
+                    <span class="w-8 h-px bg-gold"></span>
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-emerald-dark">Salgados Finos Fritos e Assados</h3>
+                        <p class="text-emerald/80 font-light text-sm mt-2 leading-relaxed max-w-lg mx-auto">
+                            Coxinha de frango, bolinha de queijo, bolinha de carne, risoles de presunto e queijo, bolinho de queijo com milho, esfiha de carne, trouxinha de frango, trouxinha de salsicha e enroladinho de presunto e queijo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-gold text-lg opacity-60 my-6 animate-pulse-slow">
+                <i class="fa-solid fa-leaf"></i>
+            </div>
+
+            <!-- SEÇÃO: PRATO PRINCIPAL -->
+            <div class="relative z-10 mb-8 animate-slide-up delay-200">
+                <h2 class="font-serif text-2xl text-emerald mb-4 flex items-center justify-center gap-3">
+                    <span class="w-8 h-px bg-gold"></span>
+                    Almoço ou Jantar
+                    <span class="w-8 h-px bg-gold"></span>
+                </h2>
+                <div class="space-y-5">
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-emerald-dark">Strogonoff de Carne</h3>
+                        <p class="text-emerald/80 font-light text-sm mt-1">Com champignons salteados, acompanhado de arroz branco e batata palha</p>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-emerald-dark">Frango à Primavera</h3>
+                        <p class="text-emerald/80 font-light text-sm mt-1 leading-relaxed max-w-lg mx-auto">
+                            Iscas de sobrecoxa de frango com legumes (pimentões coloridos, ervilha, milho, vagem, cenoura e azeitonas). Acompanha arroz com açafrão e salsa, ou batata.
+                        </p>
+                    </div>
+                    
+                    <!-- Sub-seção de Saladas -->
+                    <div class="pt-4 border-t border-mint w-3/4 mx-auto">
+                        <h3 class="font-serif text-md font-bold text-emerald-dark italic mb-2">Seleção de Saladas Provençal</h3>
+                        <p class="text-emerald/80 font-light text-sm mt-1">Vinagrete</p>
+                        <p class="text-emerald/80 font-light text-sm mt-1">Salada de Macarrão (fusilli, maionese, cenoura ralada, ervilha, milho, presunto, queijo e salsa)</p>
+                        <p class="text-emerald/80 font-light text-sm mt-1">Salada Verde (alface, rúcula e agrião)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-gold text-lg opacity-60 my-6 animate-pulse-slow">
+                <i class="fa-solid fa-leaf"></i>
+            </div>
+
+            <!-- SEÇÃO: SOBREMESA -->
+            <div class="relative z-10 mb-8 animate-slide-up delay-300">
+                <h2 class="font-serif text-2xl text-emerald mb-4 flex items-center justify-center gap-3">
+                    <span class="w-8 h-px bg-gold"></span>
+                    Sobremesa
+                    <span class="w-8 h-px bg-gold"></span>
+                </h2>
+                <div class="space-y-3">
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-emerald-dark">O Bolo de Casamento</h3>
+                        <p class="text-emerald/80 font-light text-sm mt-1">Bolo especial servido com sorvete de creme</p>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-emerald-dark">Doces Tradicionais</h3>
+                        <p class="text-emerald/80 font-light text-sm mt-1">Brigadeiro e Beijinho</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEÇÃO: BEBIDAS -->
+            <div class="relative z-10 mb-8 animate-slide-up delay-400">
+                <h2 class="font-serif text-2xl text-emerald mb-4 flex items-center justify-center gap-3">
+                    <span class="w-8 h-px bg-gold"></span>
+                    Bebidas
+                    <span class="w-8 h-px bg-gold"></span>
+                </h2>
+                <p class="text-emerald/80 font-light text-sm leading-relaxed max-w-sm mx-auto">
+                    Água aromatizada (Hall de Entrada)<br>
+                    Água Mineral<br>
+                    Refrigerantes de 1ª linha (Coca-Cola, Guaraná e Fanta Laranja)<br>
+                    Sucos Naturais em 2 sabores (Laranja e Fruta da Época)
+                </p>
+            </div>
+
+            <!-- Footer do Cardápio -->
+            <div class="relative z-10 animate-fade-in delay-500">
+                <div class="gold-divider"></div>
+                <p class="font-cursive text-3xl text-gold mt-4">Bom Apetite!</p>
+                <p class="text-xs text-emerald-dark/50 mt-4 tracking-widest uppercase">Obrigado por celebrar conosco</p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
